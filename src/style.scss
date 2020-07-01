@@ -7,7 +7,17 @@ body {
   font-family: $font;
   color: $primary-color;
 }
-
 h1 {
   color: red;
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+ul {
+  color: green;
+  margin-top: 0;
+}
+p {
+  margin: 0;
 }
