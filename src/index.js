@@ -1,10 +1,13 @@
 import moment from "moment";
+import "alpinejs";
 
 import "./style.scss";
 
-import "./js/vanilla.js";
+const getUserModule = () => import(/* webpackChunkName: "APIpengguna" */ "./common/usersAPI");
 
-const getUserModule = () => import(/* webpackChunkName: "usersAPI" */ "./common/usersAPI");
+import "./js/vanilla.js";
+import "./js/alpine.js";
+
 btn.addEventListener("click", () => {
   getUserModule().then(({ getUsers }) => {
     getUsers().then(json => console.log(json));

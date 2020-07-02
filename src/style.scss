@@ -11,7 +11,7 @@ h1 {
   color: red;
   margin: 0;
 }
-h2 {
+h3 {
   margin: 0;
 }
 ul {
@@ -20,4 +20,9 @@ ul {
 }
 p {
   margin: 0;
+}
+
+*[id*='PostList']{
+  margin: 0 1.2rem;
+  color:brown;
 }

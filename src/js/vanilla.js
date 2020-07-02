@@ -1,20 +1,28 @@
-const getUserModule = () => import("../common/usersAPI");
+const getServiceModule = () => import(/* webpackChunkName: "APIservice" */ "../common/serviceAPI");
 
-const container = document.querySelector('#vanillaUserList');
+const userContainer = document.querySelector('#vanillaUserList');
+const postContainer = document.querySelector('#vanillaPostList');
 
-getUserModule().then(({ getUsers }) => {
+getServiceModule().then(({ getUsers,getPosts }) => {
   getUsers().then(json => json.forEach((val, key) => {
-    // console.log(val.name+', '+val.email);
+    var li = document.createElement('li');
 
-    var wrapper = document.createElement('li');
-    var name = document.createElement('h2');
-    var email = document.createElement('p');
-
-    name.innerText = val.name;
-    email.innerText = val.email;
-
-    wrapper.appendChild(name);
-    wrapper.appendChild(email);
-    container.appendChild(wrapper);
+    li.innerText = `Name: ${val.name}, Email: ${val.email}`;
+    userContainer.appendChild(li);
   }));
+
+  // getPosts().then(json => json.forEach((val, key) => {
+  //   var div = document.createElement('div');
+  //   var h3 = document.createElement('h3');
+  //   var p = document.createElement('p');
+  //   var hr = document.createElement('hr');
+
+  //   h3.innerText = val.title;
+  //   p.innerText = val.body;
+  //   div.appendChild(h3);
+  //   div.appendChild(p);
+
+  //   postContainer.appendChild(div);
+  //   postContainer.appendChild(hr);
+  // }));
 });
